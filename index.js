@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true });
+const mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost/resthub';
+mongoose.connect(mongodb_uri, { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // Added check for DB connection
