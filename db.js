@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-//const mongodb_uri = process.env.MONGODB_URI;
-const mongodb_uri = 'mongodb://localhost/resthub';
+if (process.env.NODE_ENV == 'test') 
+    const mongodb_uri = 'mongodb://localhost/resthub';
+else
+    const mongodb_uri = process.env.MONGODB_URI;
+
 
 function connect() {
     var options = {
