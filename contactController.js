@@ -1,22 +1,29 @@
-// contactController.js
-// Import contact model
-Contact = require('./contactModel');
+const Contact = require('./contactModel');
+
+// DEFINE CONTROLLER FUNCTIONS
 
 // Handle index actions
 exports.index = function (req, res) {
-    Contact.get(function (err, contacts) {
+    Contact.find({}, (err, todo) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
-            });
+            res.status(500).send(err);
         }
-        res.json({
-            status: "success",
-            message: "Contacts retrieved successfully",
-            data: contacts
-        });
+        res.status(200).json(todo);
     });
+
+    // Contact.get(function (err, contacts) {
+    //     if (err) {
+    //         res.json({
+    //             status: "error",
+    //             message: err,
+    //         });
+    //     }
+    //     res.json({
+    //         status: "success",
+    //         message: "Contacts retrieved successfully",
+    //         data: contacts
+    //     });
+    // });
 };
 
 // Handle create contact actions
