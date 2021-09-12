@@ -1,6 +1,9 @@
 // contactModel.js
 var mongoose = require('mongoose');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Setup schema
 var contactSchema = mongoose.Schema({
     name: {
@@ -20,7 +23,11 @@ var contactSchema = mongoose.Schema({
 });
 
 // Export Contact model
-module.exports = mongoose.model('contact', contactSchema);
+if (process.env.NODE_ENV == 'test') {
+    module.exports = mongoose.model('contacts-test', contactSchema);
+} else {
+    module.exports = mongoose.model('contacts', contactSchema);
+}
 // var Contact = module.exports = mongoose.model('contact', contactSchema);
 // module.exports.get = function (callback, limit) {
 //     Contact.find(callback).limit(limit);
