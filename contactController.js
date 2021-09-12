@@ -35,8 +35,8 @@ exports.new = function (req, res) {
     contact.phone = req.body.phone;
     // save the contact and check for errors
     contact.save(function (err) {
-        // if (err)
-        //     res.json(err);
+        if (err)
+            res.json(err);
         res.json({
             message: 'New contact created!',
             data: contact
