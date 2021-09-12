@@ -3,6 +3,10 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let app = express();
 
+// Read from .env file
+const dotenv = require('dotenv');
+dotenv.config();
+
 let apiRoutes = require("./api-routes");
 
 app.use(bodyParser.urlencoded({
@@ -12,11 +16,7 @@ app.use(bodyParser.json());
 
 //const mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost/resthub';
 
-const username = 'resthub-admin';
-const password = 'resthub-admin';
-const database_name = 'resthub';
-const mongodb_uri = process.env.MONGODB_URI ||
-    `mongodb+srv://${username}:${password}@resthub-sg.udsmr.mongodb.net/${database_name}?retryWrites=true&w=majority`;
+const mongodb_uri = process.env.MONGODB_URI;
 
 const options = {
     useNewUrlParser:  true,
