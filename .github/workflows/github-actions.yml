@@ -4,6 +4,8 @@ jobs:
   run_tests:
     name: Run tests
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: test
     steps:
       - run: npm install
       - run: npm test
