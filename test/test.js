@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http');
 const app = require('../index.js');
 
 let Contact = require('../contactModel.js');
-const { expect } = require('chai');
 
 chai.use(chaiHttp);
 chai.should();
@@ -16,7 +15,7 @@ describe('Contacts', () => {
     });
 });
 
-describe('Test connection', () => {
+describe('0. Test connection', () => {
     it("it should return status 200", (done) => {
         chai.request(app)
             .get('/api')
@@ -27,7 +26,7 @@ describe('Test connection', () => {
     });
 });
 
-describe('GET /api/contacts', () => {
+describe('1. GET /api/contacts', () => {
     before((done) => {
         Contact.create({
             name: "tester",
@@ -49,7 +48,7 @@ describe('GET /api/contacts', () => {
     });
 });
 
-describe('POST /api/contacts', () => {
+describe('2. POST /api/contacts', () => {
     it("it should create a new contact", (done) => {
         let new_contact = {
             name: 'Anto',
@@ -91,7 +90,7 @@ describe('POST /api/contacts', () => {
     // });
 });
 
-describe('PUT /api/contacts', () => {
+describe('3. PUT /api/contacts', () => {
     before((done) => {
         Contact.create({
             name: "tester",
@@ -138,7 +137,7 @@ describe('PUT /api/contacts', () => {
     });
 });
 
-describe('DELETE /api/contacts', () => {
+describe('4. DELETE /api/contacts', () => {
     before((done) => {
         Contact.create({
             name: "tester",
