@@ -7,7 +7,6 @@ jobs:
     env:
       NODE_ENV: test
     steps:
-      - run: npm cache clean -f
-      - run: rm -rf node_modules
-      - run: npm i
+      - run: npm init -y
+      - run: npm install
       - run: npm test
