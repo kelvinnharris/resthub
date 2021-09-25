@@ -9,4 +9,4 @@ jobs:
     steps:
       - run: npm init -y
       - run: npm install
-      - run: npm test
+      - run: mocha --exit --timeout 10000
