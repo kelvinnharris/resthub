@@ -8,6 +8,5 @@ jobs:
       NODE_ENV: test
     steps:
       - uses: actions/checkout@v2
-      - run: npm init -y
       - run: npm install
-      - run: npm run 
+      - run: npm test
