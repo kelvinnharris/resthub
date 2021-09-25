@@ -5,4 +5,4 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
-      - run: npm tests
+      - run: npm test
