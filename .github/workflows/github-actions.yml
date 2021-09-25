@@ -1,0 +1,8 @@
+name: Test Automation
+on: [push, pull_request]
+jobs:
+  run_tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm tests
