@@ -1,14 +1,31 @@
 const Contact = require('./contactModel');
+const Redis = require('redis');
+
+const redisClient = Redis.createClient();
+const DEFAULT_EXPIRATION = 3600;
 
 // DEFINE CONTROLLER FUNCTIONS
 
 // Handle index actions
 exports.index = function (req, res) {
-  Contact.find({}, (err, todo) => {
-    if (err) {
-      res.status(500).send(err);
+
+  redisClient.get('contacts', (err, contacts) => {
+
+    if (err) console.error(err);
+
+    if (contacts != null) {
+      console.log('Cache hit');
+      return res.status(200).json(JSON.parse(contacts));
+    } else {
+      console.log('Cache miss');
+
+      Contact.find({}, (err, contacts) => {
+        if (err) res.status(500).send(err);
+
+        redisClient.setex("contacts", DEFAULT_EXPIRATION, JSON.stringify(contacts));
+        res.status(200).json(contacts);
+      });
     }
-    res.status(200).json(todo);
   });
 
   // Contact.get(function (err, contacts) {
@@ -35,6 +52,7 @@ exports.new = function (req, res) {
   contact.email = req.body.email;
   contact.phone = req.body.phone;
   console.log(req.body);
+
   // save the contact and check for errors
   contact.save(function (err) {
     if (err)
@@ -47,7 +65,7 @@ exports.new = function (req, res) {
   });
 };
 
-// Handle view contact info
+// Handle view contact info by id
 exports.view = function (req, res) {
   Contact.findById(req.params.contact_id, function (err, contact) {
     if (err)
