@@ -1,0 +1,38 @@
+### Get all contacts
+GET http://localhost:8080/api/contacts
+
+
+###
+
+POST http://localhost:8080/api/contacts
+Content-Type: application/json
+
+{
+  "name": "Kelvin",
+  "gender": "Male",
+  "email": "kelvin@gmail.com",
+  "phone": "12321321"
+}
+
+###
+PUT http://localhost:8080/api/contacts/613deef69e2b642cd6b5d291
+Content-Type: application/json
+
+{
+  "name": "Budi Suparno",
+  "gender": "Male",
+  "email": "budi_s@gmail.com",
+  "phone": "99999999"
+}
+
+###
+DELETE http://localhost:8080/api/contacts/617236eda35299d2e186e7d4
+Content-Type: application/json
+
+
+
+
+
+### 
+GET http://localhost:8080/api/contacts/613deef69e2b642cd6b5d291
+

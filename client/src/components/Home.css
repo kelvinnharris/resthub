@@ -1,0 +1,10 @@
+.main-home-container {
+  margin-top: 100px;
+  width: 45rem;
+  text-align: center;
+}
+
+.main-logo {
+  width: 20rem;display: block;
+  margin: 0 auto;
+}

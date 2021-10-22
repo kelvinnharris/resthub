@@ -1,15 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const responseTime = require('response-time');
 const app = express();
 
 const apiRoutes = require("./api-routes");
+
+var cors = require("cors");
+app.use(cors());
 
 // What is this
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+
+app.use(responseTime());
 
 // Import db.js
 const db = require('./db.js');
