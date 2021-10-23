@@ -11,10 +11,10 @@ class Home extends Component {
         <div class="jumbotron">
           <h1 class="display-4">Contact List</h1>
           <p class="lead">A simple contact list service for storing contact information.</p>
-          <hr class="my-3" />
+          <hr class="my-5" />
 
           <div class="main-logo">
-            {/* <img src={logo} class="img-fluid my-5"></img> */}
+            <img src={logo} class="img-fluid my-5"></img>
           </div>
 
           <br />

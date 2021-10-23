@@ -73,8 +73,9 @@ exports.update = function (req, res) {
       if (err)
         res.json(err);
       res.json({
+        status: 'success',
         message: 'Contact Info updated',
-        data: contact
+        data: contact,
       });
     });
   });

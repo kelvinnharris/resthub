@@ -26,7 +26,7 @@ var contactSchema = mongoose.Schema({
 if (process.env.NODE_ENV == 'test') {
     module.exports = mongoose.model('contacts-test', contactSchema);
 } else {
-    module.exports = mongoose.model('contacts', contactSchema);
+    module.exports = mongoose.model('contacts-b', contactSchema);
 }
 // var Contact = module.exports = mongoose.model('contact', contactSchema);
 // module.exports.get = function (callback, limit) {

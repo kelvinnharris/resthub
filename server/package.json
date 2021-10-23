@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "devStart": "nodemon index.js",
     "start": "node index.js",
     "test": "mocha --exit --timeout 10000"
   },
@@ -25,6 +26,6 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "mockgoose": "^8.0.4",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.14"
   }
 }

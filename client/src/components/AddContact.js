@@ -1,5 +1,4 @@
-import React, { useState, Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import './AddContact.css';
 
 class AddContact extends Component {
@@ -45,7 +44,7 @@ class AddContact extends Component {
       .then(res => {
         console.log(res);
         console.log(res.message);
-        let success = res.status == 'success';
+        let success = res.status === 'success';
         this.setState({ success: success, message: res.message, data: res.data});
       });
   }
