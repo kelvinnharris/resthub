@@ -1,6 +1,6 @@
 # Resthub (Redis branch)
 
-The main code can be found at `/server/contactController.js` line 1-30.
+The main code for Redis demonstration can be found at `/server/contactController.js` line 1-30.
 
 ## Running locally
 
