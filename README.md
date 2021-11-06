@@ -1,5 +1,7 @@
 # Resthub (Redis branch)
 
+The main code can be found at `/server/contactController.js` line 1-30.
+
 ## Running locally
 
 ### Connecting to local database
@@ -35,7 +37,7 @@ In this implementation, we used `response-time` as middleware that adds `X-Respo
 To demonstrate
 
 - Keep redis-server running in background
-- Run the GET request at `http://localhost:8080/api/contacts` in `requests.rest` It should return a response with `X-Response-Time` of ~200ms.
+- Run the GET request at `http://localhost:8080/api/contacts` in `requests.rest` It should return a response with `X-Response-Time` of 100-200ms.
 
 ```
 HTTP/1.1 200 OK
