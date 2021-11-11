@@ -10,6 +10,10 @@ jobs:
       MONGODB_URI: mongodb+srv://resthub-admin:resthub-admin@resthub-sg.udsmr.mongodb.net/resthub?retryWrites=true&w=majority
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
       - run: cd server
       - run: npm install
       - run: npm test
