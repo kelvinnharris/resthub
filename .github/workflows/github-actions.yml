@@ -1,12 +1,28 @@
-name: Test Automation
-on: [push, pull_request]
+name: Node.js CI
+on: [pull_request]
+
 jobs:
   run_tests:
     name: Run tests
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: test
+    
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm test
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Start mongodb
+        uses: supercharge/mongodb-github-action@1.6.0
+        with:
+          mongodb-version: 3.4.23
+          mongodb-port: 27017
+      - name: Install dependencies
+        working-directory: ./server
+        run: npm install
+      - name: Run tests
+        working-directory: ./server
+        env:
+          NODE_ENV: test
+          MONGODB_URI: mongodb+srv://resthub-admin:resthub-admin@resthub-sg.udsmr.mongodb.net/resthub?retryWrites=true&w=majority
+        run: npm test
