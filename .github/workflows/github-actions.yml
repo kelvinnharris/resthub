@@ -8,26 +8,18 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
       - name: Start mongodb
-        working-directory: ./server
         uses: supercharge/mongodb-github-action@1.6.0
         with:
           mongodb-version: 3.4.23
           mongodb-port: 27017
-
-      # - name: Run mongodb
-      #   run: mongod
-          
       - name: Install dependencies
         working-directory: ./server
         run: npm install
-
       - name: Run tests
         working-directory: ./server
         env:
