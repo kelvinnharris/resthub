@@ -11,9 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
+        working-directory: ./server
         uses: actions/setup-node@v1
         with:
           node-version: '6.9.0'
-      - run: cd server
-      - run: npm install
-      - run: npm test
+      - name: npm install
+        working-directory: ./server
+        run: npm install
+      - name: npm test
+        working-directory: ./server
+        run: npm test
