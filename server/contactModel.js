@@ -24,9 +24,11 @@ var contactSchema = mongoose.Schema({
 
 // Export Contact model
 if (process.env.NODE_ENV == 'test') {
-    module.exports = mongoose.model('contacts-test', contactSchema);
-} else {
-    module.exports = mongoose.model('contacts-b', contactSchema);
+    module.exports = mongoose.model('test-contact', contactSchema);
+} else if (process.env.NODE_ENV == 'dev') {
+    module.exports = mongoose.model('dev-contact', contactSchema); 
+} else { // prod
+    module.exports = mongoose.model('contact', contactSchema);
 }
 // var Contact = module.exports = mongoose.model('contact', contactSchema);
 // module.exports.get = function (callback, limit) {
