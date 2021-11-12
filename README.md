@@ -21,3 +21,7 @@ Server would be running at http://localhost:8080
 
 - Ensure `NODE_ENV` in `.env` file is set to `test`.
 - Run `npm test`.
+
+## Task F (Redis)
+
+- Check out `task-f` branch
